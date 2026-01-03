@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "xtronpro-uf2tool": {
+      "commandName": "Project",
+      "commandLineArgs": "megaman3.nes"
+    }
+  }
+}
