@@ -3,7 +3,6 @@
 // require a path to a source file as an argument
 if (args.Length < 1)
 {
-    Console.Error.WriteLine(args.Length);
     Console.Error.WriteLine("Please provide the path to a source file as an argument.");
     return;
 }
