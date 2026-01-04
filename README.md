@@ -6,9 +6,9 @@ Based on the [Microsoft UF2 specification](https://github.com/microsoft/uf2) and
 
 ## Requirements
 
-* An XTron Pro handheld device
+* An [XTron Pro](https://www.ovobot.cc/en/product/detail/xtron-pro/) handheld device
 * An NES ROM 256KB or smaller
-* .NET 10 SDK or later
+* [.NET 10 or later](https://dotnet.microsoft.com/en-us/download) (runtime to use the tool, and/or SDK to build it yourself)
 
 The output file can be copied directly to the XTron Pro when it is connected to a computer in bootloader mode.
 
