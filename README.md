@@ -1,10 +1,12 @@
 # xtronpro-uf2tool
 
+## Version 1.1
+
 A simple command-line tool for converting NES ROM files into the format used by [the XTron Pro's NES emulator](https://www.ovobot.cc/en/weblog/2021/02/22/nes-emulator-xtron-pro/).
 
 Based on the [Microsoft UF2 specification](https://github.com/microsoft/uf2) and a reverse-engineered understanding of the output of [the official tool from Ovobot](https://www.ovobot.cn/en/product/learn/uf2conv/).
 
-## Requirements
+### Requirements
 
 * An [XTron Pro](https://www.ovobot.cc/en/product/detail/xtron-pro/) handheld device
 * An NES ROM 256KB or smaller
@@ -12,7 +14,19 @@ Based on the [Microsoft UF2 specification](https://github.com/microsoft/uf2) and
 
 The output file can be copied directly to the XTron Pro when it is connected to a computer in bootloader mode.
 
-## Some Technical Details
+### Usage
+
+On the command line, run:
+
+```xtronpro-uf2tool [<input.nes> | <input folder>```
+
+Where `<input.nes>` is the path to the NES ROM file you want to convert, or `<input folder>` is a folder containing one or more NES ROM files to convert in batch mode.
+
+If you provide a single NES ROM file, the output file will be created in the same folder with the name ```<file name>-conv.nes```.
+
+If you provide a folder, all files in the folder with the `.nes` extension will be converted, and the output files will be created with the same names as the originals but in a subfolder named **conv**.
+
+### Some Technical Details
 * The converted file contains series of 512-byte blocks with specific headers and footers. The XTron Pro's NES emulator expects the NES ROM data to be embedded within these blocks in a specific way:
 * The NES ROM data is divided into 256-byte chunks. As a result, the output file will be at least twice the size of the original NES ROM file.
 * Per the UF2 specification, each block begins with two magic numbers - 0x0A324655, then 0x9E5D5157.
@@ -24,6 +38,6 @@ The output file can be copied directly to the XTron Pro when it is connected to 
 * The family ID is 0x57755A57, indicating [the STM32F4 MCU family](https://www.st.com/en/microcontrollers-microprocessors/stm32f4-series.html).
 * Each block ends with a magic number of 0x0AB16F30.
 
-## Licensing
+### Licensing
 
 Written by Michael McElroy and licensed under the MIT License. See the [LICENSE.txt](LICENSE.txt) file for details.
